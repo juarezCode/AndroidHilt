@@ -3,11 +3,12 @@ package com.juarez.androidhilt
 import androidx.fragment.app.FragmentActivity
 import com.juarez.androidhilt.ui.ButtonsFragment
 import com.juarez.androidhilt.ui.LogsFragment
+import javax.inject.Inject
 
 /**
  * Navigator implementation.
  */
-class AppNavigatorImpl(private val activity: FragmentActivity) : AppNavigator {
+class AppNavigatorImpl @Inject constructor(private val activity: FragmentActivity) : AppNavigator {
 
     override fun navigateTo(screen: Screens) {
         val fragment = when (screen) {

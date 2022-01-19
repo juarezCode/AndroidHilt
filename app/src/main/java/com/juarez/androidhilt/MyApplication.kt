@@ -1,12 +1,7 @@
 package com.juarez.androidhilt
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class MyApplication: Application() {
-    lateinit var serviceLocator: ServiceLocator
-
-    override fun onCreate() {
-        super.onCreate()
-        serviceLocator = ServiceLocator(applicationContext)
-    }
-}
+@HiltAndroidApp
+class MyApplication : Application()

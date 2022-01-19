@@ -14,10 +14,13 @@ import com.juarez.androidhilt.MyApplication
 import com.juarez.androidhilt.R
 import com.juarez.androidhilt.db.Log
 import com.juarez.androidhilt.db.LoggerLocalDataSource
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LogsFragment : Fragment() {
-    private lateinit var logger: LoggerLocalDataSource
-    private lateinit var dateFormatter: DateFormatter
+    @Inject lateinit var logger: LoggerLocalDataSource
+    @Inject lateinit var dateFormatter: DateFormatter
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -34,17 +37,17 @@ class LogsFragment : Fragment() {
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//
+//        populateFields(context)
+//    }
 
-        populateFields(context)
-    }
-
-    private fun populateFields(context: Context) {
-        logger = (context.applicationContext as MyApplication).serviceLocator.loggerLocalDataSource
-        dateFormatter =
-            (context.applicationContext as MyApplication).serviceLocator.provideDateFormatter()
-    }
+//    private fun populateFields(context: Context) {
+//        logger = (context.applicationContext as MyApplication).serviceLocator.loggerLocalDataSource
+//        dateFormatter =
+//            (context.applicationContext as MyApplication).serviceLocator.provideDateFormatter()
+//    }
 
     override fun onResume() {
         super.onResume()

@@ -2,7 +2,7 @@ package com.juarez.androidhilt.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.juarez.androidhilt.api.CharacterAPI
+import com.juarez.androidhilt.data.api.CharacterAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

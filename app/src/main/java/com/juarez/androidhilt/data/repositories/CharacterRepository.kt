@@ -1,11 +1,11 @@
-package com.juarez.androidhilt.repositories
+package com.juarez.androidhilt.data.repositories
 
-import com.juarez.androidhilt.api.CharacterAPI
-import com.juarez.androidhilt.models.Character
+import com.juarez.androidhilt.data.api.CharacterAPI
+import com.juarez.androidhilt.data.models.Character
 import javax.inject.Inject
 
 class CharacterRepository @Inject constructor(
-    private val characterAPI: CharacterAPI
+    private val characterAPI: CharacterAPI,
 ) {
 
     suspend fun getCharacters(
@@ -21,4 +21,5 @@ class CharacterRepository @Inject constructor(
             callback.invoke(false, null, e.message.toString())
         }
     }
+
 }

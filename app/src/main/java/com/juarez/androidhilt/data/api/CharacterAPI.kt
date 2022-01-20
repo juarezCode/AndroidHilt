@@ -1,6 +1,6 @@
-package com.juarez.androidhilt.api
+package com.juarez.androidhilt.data.api
 
-import com.juarez.androidhilt.models.CharacterList
+import com.juarez.androidhilt.data.models.CharacterList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

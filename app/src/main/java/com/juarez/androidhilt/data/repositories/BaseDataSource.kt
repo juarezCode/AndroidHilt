@@ -1,6 +1,6 @@
-package com.juarez.androidhilt.repositories
+package com.juarez.androidhilt.data.repositories
 
-import com.juarez.androidhilt.models.Resource
+import com.juarez.androidhilt.data.models.Resource
 import retrofit2.Response
 
 abstract class BaseDataSource {

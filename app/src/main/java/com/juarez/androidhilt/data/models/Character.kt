@@ -1,4 +1,4 @@
-package com.juarez.androidhilt.models
+package com.juarez.androidhilt.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -4,36 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.characters.CharactersFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".ui.users.UsersFragment">
 
     <Button
-        android:id="@+id/btnNavigate"
+        android:id="@+id/btnAddUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="navigate second fragment"
+        android:text="add user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/txtValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="un valor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddUser" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerCharacters"
+        android:id="@+id/recyclerUsers"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNavigate" />
+        app:layout_constraintTop_toBottomOf="@+id/txtValue"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_user" />
 
-    <ProgressBar
-        android:id="@+id/progressCharacters"
-        style="?android:attr/progressBarStyle"
+    <Button
+        android:id="@+id/btnDeleteAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        android:text="Delete All"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddUser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

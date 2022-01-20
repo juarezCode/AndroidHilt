@@ -1,32 +1,40 @@
 package com.juarez.androidhilt.ui
 
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.juarez.androidhilt.AppNavigator
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.juarez.androidhilt.R
-import com.juarez.androidhilt.Screens
+import com.juarez.androidhilt.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    @Inject
-    lateinit var navigator: AppNavigator
+    private lateinit var binding: ActivityMainBinding
+    //private val viewModel: CharactersViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        //navigator = (applicationContext as MyApplication).serviceLocator.provideNavigator(this)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        if (savedInstanceState == null) {
-            navigator.navigateTo(Screens.BUTTONS)
-        }
+        val navHostFragment: NavHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController: NavController = navHostFragment.navController
+
+        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+
+//        viewModel.getCharacters()
+//        viewModel.characters.observe(this, {
+//            for (cha in it) {
+//                Log.d("cha", cha.name)
+//            }
+//        })
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (supportFragmentManager.backStackEntryCount == 0) {
-            finish()
-        }
-    }
 }
